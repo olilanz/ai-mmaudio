@@ -16,7 +16,7 @@ ENV LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
 ENV PYTHONUNBUFFERED=1
 
 # Dynamic memory allocation for PyTorch in order to reduce memory fragmentation.
-# (reduces risk of OOM eerors in low VRAM scenarios)
+# (reduces risk of OOM errors in low VRAM scenarios)
 ENV PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 # Install system dependencies in a single step to reduce layer size
@@ -26,7 +26,7 @@ RUN apt update && apt install -y \
     python3 -m pip install --upgrade pip && \
     rm -rf /var/lib/apt/lists/*
 
-# Package the startup script and the latest version of the HVGP repositories
+# Package the startup script and the latest version of the app repositories
 WORKDIR /app
 
 RUN git clone --single-branch --depth=1 https://github.com/hkchengrex/MMAudio.git APP && \

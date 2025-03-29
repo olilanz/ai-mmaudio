@@ -25,7 +25,7 @@ fi
 source "${VENV_HOME}/bin/activate"
 
 # Ensure latest pip version
-pip install --no-cache-dir --upgrade pip wheel pip-review
+pip install --no-cache-dir --upgrade pip wheel
 
 # Clone or update MMAudio
 NEEDS_INSTALL=0
@@ -61,7 +61,7 @@ fi
 
 if [[ "$NEEDS_INSTALL" == "1" ]]; then
     echo "📦 Installing Python dependencies..."
-    pip install -e "$REPO_HOME" -e "$REPO_HOME" torchaudio
+    pip install -e "$REPO_HOME" torchaudio
 fi
 
 # Start the service
