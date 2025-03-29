@@ -4,7 +4,7 @@ Containerized version of the MMAudio sound generator. It is based on the MMAudio
 
 Tested on RTX 3060 12GB, RTX 3090 TI, L40, and H100. Currently, only NVIDIA CPUs are supported, as the code relies on CUDA for processing.
 
-During the first start-up, the container will acquire the latest model and code from [Rex Cheng's repo](https://github.com/hkchengrex/MMAudio) and the latest tencent/HunyuanVideo model from [Huggingface](https://huggingface.co/hkchengrex/MMAudio).
+During the first start-up, the container will acquire the latest model and code from [Rex Cheng's repo](https://github.com/hkchengrex/MMAudio) and the latest hkchengrex/MMAudio model from [Huggingface](https://huggingface.co/hkchengrex/MMAudio).
 
 ## Disk Size and Startup Time
 The container requires considerable disk space for storage of the AI models. On my setup, I observe 7GB for the Docker image itself, plus 15GB for cached data. Building the cache will happen the first time you start the container, which can easily take 20 minutes or more. After that, any restart should be faster.
@@ -12,7 +12,7 @@ The container requires considerable disk space for storage of the AI models. On 
 It may be advisable to store the cache outside of the container, e.g. by mounting a volume to /workspace.
 
 ## Variables
-HVGP_AUTO_UPDATE: Automatically updates the models and inference scripts to the latest version upon container start-up (default: 0).
+AUTO_UPDATE: Automatically updates the models and inference scripts to the latest version upon container start-up (default: 0).
  - 0: Don't update automatically. Use the scripts that are bundled.
  - 1: Update and use the latest features/models, but also accept that this may bring breaking changes.
 
